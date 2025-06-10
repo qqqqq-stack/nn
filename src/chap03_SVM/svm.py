@@ -59,9 +59,14 @@ class SVM:
             # 找出违反间隔条件的样本（margin < 1）： 当样本的 margin < 1 时，该样本被认为是错误分类或处于间隔区域内
             idx = np.where(margin < 1)[0]  # 返回违反间隔条件的样本的索引
 
-            # 如果没有违反间隔条件的样本，则跳过梯度更新：这意味着所有样本都满足 margin >= 1，模型已经达到一个相对稳定的状态
-            if len(idx) == 0:
-                continue
+           # 无论是否有违反间隔的样本，都进行梯度更新
+           # 如果没有违反间隔的样本，只计算正则化项的梯度
+if len(idx) > 0:
+    dw = (2 * self.reg_lambda * self.w) - np.mean(y[idx].reshape(-1, 1) * X[idx], axis=0)
+    db = -np.mean(y[idx])
+else:
+    dw = 2 * self.reg_lambda * self.w
+    db = 0
 
             # 计算梯度
             # L2正则化项 + 错误分类样本的平均梯度

@@ -114,10 +114,9 @@ class linearModel(Model):
         return y
 
 
-    (xs, ys), (o_x, o_y) = load_data("train.txt")    # 调用load_data函数      
-    ndim = xs.shape[1]  # 获取特征维度
-
-    model = linearModel(ndim=ndim)  # 实例化线性模型
+(xs, ys), (o_x, o_y) = load_data("train.txt")    # 调用load_data函数      
+ndim = xs.shape[1]  # 获取特征维度
+model = linearModel(ndim=ndim)  # 实例化线性模型
 
 
 #训练以及评估

@@ -65,7 +65,7 @@ class myModel:
         #  输出层计算：全连接层（无激活函数，直接输出 logits）
         #  - 隐藏层特征（128维） × 权重矩阵 W2（128×10） → 分类评分（10维）
         #  - 未应用 softmax，便于后续使用 sparse_softmax_cross_entropy_with_logits 计算损失
-        logits = h @ self.W2 + self.b2         
+        logits = tf.matmul(h, self.W2) + self.b2       
         return logits
         
 model = myModel()

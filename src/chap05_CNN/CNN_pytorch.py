@@ -44,7 +44,8 @@ train_loader = Data.DataLoader(
 # train=False表示加载测试集（而不是训练集）
 test_data = torchvision.datasets.MNIST(root='./mnist/', train=False)
 # 预处理测试数据：转换为 Variable ，调整维度，归一化，只取前500个样本
-test_x = Variable(torch.unsqueeze(test_data.test_data, dim=1), volatile=True).type(torch.FloatTensor)[:500]/255.
+test_x = torch.unsqueeze(test_data.test_data, dim=1).type(torch.FloatTensor)[:500]/255.
+# 不需要转换为Variable，直接使用Tensor
 # 获取测试集的标签（前500个），并转换为 numpy 数组
 test_y = test_data.test_labels[:500].numpy()
 

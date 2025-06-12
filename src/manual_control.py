@@ -1337,9 +1337,11 @@ class CameraManager(object):
             array = array[:, :, :3]
             array = array[:, :, ::-1]
             self.surface = pygame.surfarray.make_surface(array.swapaxes(0, 1))
-        if self.recording:
+       if self.recording:
+            # 创建保存目录（如果不存在）
+       if not os.path.exists('_out'):
+            os.makedirs('_out')
             image.save_to_disk('_out/%08d' % image.frame)
-
 
 # ==============================================================================
 # -- game_loop() ---------------------------------------------------------------

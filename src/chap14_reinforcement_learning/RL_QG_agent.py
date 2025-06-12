@@ -47,7 +47,7 @@ class RL_QG_agent: # 定义了一个名为 RL_QG_agent 的类
             kernel_size = 3,              # 卷积核大小 3x3
             padding = "same",             # 输出大小与输入相同
             activation = tf.nn.relu       # ReLU 激活函数
-            )
+        )
 
     # ========== 卷积层2：提取高层语义特征（如大范围棋子布局） ==========
     # - 64个3x3卷积核，输出特征图数量翻倍，捕捉更复杂模式
@@ -60,7 +60,7 @@ class RL_QG_agent: # 定义了一个名为 RL_QG_agent 的类
             padding = "same",            #这种填充方式能保证输出特征图的尺寸和输入特征图的尺寸相同
 
             activation = tf.nn.relu      # 使用 ReLU 激活函数，引入非线性
-            )
+        )
 
         # ========== 扁平化层：将多维特征图转换为一维向量 ==========
         # - 输入形状[None, 8, 8, 64] → 输出形状[None, 8*8*64=4096]

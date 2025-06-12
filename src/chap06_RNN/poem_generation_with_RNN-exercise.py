@@ -102,7 +102,7 @@ def poem_dataset():
 # In[2]:
 
 
-class myRNNModel(keras.Model):
+class myRNNModel(Model):  # 直接继承自tf.keras.Model
     """基于RNN的诗歌生成模型"""
     def __init__(self, w2id):
         """初始化模型

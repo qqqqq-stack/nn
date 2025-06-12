@@ -293,9 +293,9 @@ register(
 )
 # 双腿行走机器人
 register(
-    id = 'Walker2d-v1',
-    max_episode_steps = 1000,
-    entry_point = 'gym.envs.mujoco:Walker2dEnv',
+    id='Walker2d-v1',
+    entry_point='gym.envs.mujoco:Walker2dEnv',
+    max_episode_steps=1000,
 )
 # 蚂蚁机器人运动控制（四足）
 register(
